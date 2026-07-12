@@ -1,0 +1,451 @@
+/* ==========================================================
+   DRONE SATELLITE VIEWER
+   STYLE.CSS
+   Author : Hendri Setia Nugraha
+   Version : 1.0
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#111827;
+}
+
+/*============================================================*/
+
+.container{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/*================ SIDEBAR =================*/
+
+.sidebar{
+
+    width:350px;
+
+    background:rgba(22,28,36,.96);
+
+    color:white;
+
+    overflow-y:auto;
+
+    padding:20px;
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+}
+
+.sidebar h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+    color:#00d8ff;
+
+}
+
+/*================ CARD =================*/
+
+.card{
+
+    background:#1f2937;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.card label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    color:#ddd;
+
+}
+
+.card input{
+
+    width:100%;
+
+    padding:10px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:8px;
+
+    margin-bottom:12px;
+
+    background:#374151;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+.card select{
+
+    width:100%;
+
+    padding:10px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:8px;
+
+    margin-bottom:12px;
+
+    background:#374151;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+/*================ RANGE =================*/
+
+input[type=range]{
+
+    width:100%;
+
+    cursor:pointer;
+
+}
+
+/*================ BUTTON =================*/
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:8px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#00bcd4;
+
+    color:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#0097a7;
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/*================ TOOLBAR =================*/
+
+main{
+
+    flex:1;
+
+    position:relative;
+
+}
+
+#toolbar{
+
+    position:absolute;
+
+    top:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:999;
+
+    background:rgba(20,20,20,.70);
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.35);
+
+}
+
+#status{
+
+    font-size:14px;
+
+}
+
+/*================ CESIUM =================*/
+
+#cesiumContainer{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+/*================ LOADING =================*/
+
+#loading{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0f172a;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:99999;
+
+}
+
+.spinner{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    border:6px solid rgba(255,255,255,.2);
+
+    border-top:6px solid #00e5ff;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+#loading p{
+
+    margin-top:15px;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+/*================ SCROLLBAR =================*/
+
+.sidebar::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#00bcd4;
+
+    border-radius:10px;
+
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:#20242c;
+
+}
+
+/*================ SLIDER VALUE =================*/
+
+#headingValue,
+#pitchValue{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:5px;
+
+    color:#00e5ff;
+
+    font-weight:bold;
+
+}
+
+/*================ RESPONSIVE =================*/
+
+@media(max-width:900px){
+
+.container{
+
+    flex-direction:column;
+
+}
+
+.sidebar{
+
+    width:100%;
+
+    height:420px;
+
+    border-right:none;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+main{
+
+    height:calc(100vh - 420px);
+
+}
+
+}
+
+/*================ EFFECT =================*/
+
+.card{
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+
+}
+
+/*================ INPUT FOCUS =================*/
+
+input:focus,
+select:focus{
+
+    box-shadow:0 0 10px #00d8ff;
+
+}
+
+/*================ BUTTON COLOR =================*/
+
+#btnDownloadPNG{
+
+    background:#4CAF50;
+
+}
+
+#btnDownloadPNG:hover{
+
+    background:#2e7d32;
+
+}
+
+#btnDownloadJPG{
+
+    background:#ff9800;
+
+}
+
+#btnDownloadJPG:hover{
+
+    background:#ef6c00;
+
+}
+
+#btnGPS{
+
+    background:#2196F3;
+
+}
+
+#btnGPS:hover{
+
+    background:#1565c0;
+
+}
+
+#btnCopy{
+
+    background:#9C27B0;
+
+}
+
+#btnCopy:hover{
+
+    background:#6a1b9a;
+
+}
+
+#btnGoogle{
+
+    background:#F44336;
+
+}
+
+#btnGoogle:hover{
+
+    background:#c62828;
+
+}
